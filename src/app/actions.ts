@@ -1,7 +1,6 @@
 "use server";
 
 import { CarData } from "@/lib/types";
-import { revalidatePath } from "next/cache";
 
 export async function getLatestSession() {
   const res = await fetch("https://api.openf1.org/v1/sessions?meeting_key=latest");
