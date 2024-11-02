@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useTheme } from "next-themes";
 import { SidebarTrigger } from "./ui/sidebar";
 import { Button } from "./ui/button";
-import { MoonIcon, SunIcon } from "lucide-react";
+import { LaptopMinimalIcon, MoonIcon, SunIcon } from "lucide-react";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu";
 
 const Header = () => {
@@ -34,7 +34,9 @@ const Header = () => {
                 variant="ghost"
                 size="icon"
               >
-                {theme === "dark" ? <MoonIcon size={16} /> : <SunIcon size={16} />}
+                <MoonIcon size={16} className={theme === "dark" ? "visible" : "hidden"} suppressHydrationWarning />
+                <SunIcon size={16} className={theme === "light" ? "visible" : "hidden"} suppressHydrationWarning />
+                <LaptopMinimalIcon size={16} className={theme === "system" ? "visible" : "hidden"} suppressHydrationWarning />
                 <span className="sr-only">Toggle theme</span>
               </Button>
             </DropdownMenuTrigger>
