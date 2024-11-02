@@ -1,14 +1,16 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useTheme } from "next-themes";
 import { SidebarTrigger } from "./ui/sidebar";
+import { Button } from "./ui/button";
+import { MoonIcon, SunIcon } from "lucide-react";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu";
 
-const Header = async () => {
-  // const navItems: NavItems[] = [
-  //   { title: "Home", url: "/", icon: HomeIcon },
-  //   { title: "Standings", url: "/standings", icon: CrownIcon },
-  //   { title: "Schedule", url: "/schedule", icon: CalendarIcon },
-  // ];
+const Header = () => {
+  const { theme, setTheme } = useTheme();
 
   return (
     <div className="flex flex-col">
@@ -25,6 +27,23 @@ const Header = async () => {
               height={24}
             />
           </Link>
+
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button
+                variant="ghost"
+                size="icon"
+              >
+                {theme === "dark" ? <MoonIcon size={16} /> : <SunIcon size={16} />}
+                <span className="sr-only">Toggle theme</span>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuItem onClick={() => setTheme("light")}>Light</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setTheme("dark")}>Dark</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setTheme("system")}>System</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       </header>
     </div>
