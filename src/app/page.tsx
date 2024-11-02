@@ -1,19 +1,9 @@
-import { CarData } from "@/lib/types";
-import { getCarData, getRaceControl } from "./actions";
+import RaceControlList from "./_components/RaceControl";
 
-export const revalidate = 60;
-
-export default async function Home() {
-  let carData: CarData = await getCarData({
-    driver_number: 4,
-  });
-
-  let raceControl = await getRaceControl();
-
+export default function Home() {
   return (
-    <main className="container flex flex-col gap-4">
-      <p>{carData && JSON.stringify(carData)}</p>
-      <p>{raceControl && JSON.stringify(raceControl)}</p>
-    </main>
+    <div className="p-4 grid grid-cols-1 @3xl/main:grid-cols-2 @7xl/main:grid-cols-3 gap-4">
+      <RaceControlList />
+    </div>
   );
 }

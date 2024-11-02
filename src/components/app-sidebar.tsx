@@ -2,9 +2,10 @@ import Link from "next/link";
 import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarTrigger } from "./ui/sidebar";
 import { CalendarCheckIcon, CalendarIcon, LucideProps, UserIcon, UsersIcon } from "lucide-react";
 import Image from "next/image";
+import ThemeToggle from "./theme-toggle";
 
 type TSidebarGroup = {
-  title: string;
+  title?: string;
   children: {
     title: string;
     url: string;
@@ -27,7 +28,7 @@ const AppSidebar = () => {
         { title: "Calendar", url: "/schedule", icon: CalendarIcon },
         { title: "Sessions", url: "/schedule/sessions", icon: CalendarCheckIcon },
       ]
-    }
+    },
   ];
 
   return (
@@ -41,7 +42,7 @@ const AppSidebar = () => {
       <SidebarContent>
         {navbar.map(({ title, children }) => (
           <SidebarGroup key={title}>
-            <SidebarGroupLabel>{title}</SidebarGroupLabel>
+            {title && <SidebarGroupLabel>{title}</SidebarGroupLabel>}
             <SidebarGroupContent>
               <SidebarMenu>
                 {children.map((child) => (
@@ -62,6 +63,7 @@ const AppSidebar = () => {
 
       <SidebarFooter>
         <SidebarTrigger />
+        <ThemeToggle />
       </SidebarFooter>
     </Sidebar>
   )

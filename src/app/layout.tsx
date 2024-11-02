@@ -22,8 +22,7 @@ export default function RootLayout({
       <body className={sans.variable}>
         <RootProvider>
           <AppSidebar />
-          <SidebarInset>
-            <Header />
+          <SidebarInset className="@container/main max-h-screen overflow-y-auto overflow-x-clip">
             {children}
           </SidebarInset>
         </RootProvider>
