@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import { ThemeProvider } from "next-themes"
+import { SidebarProvider } from "./ui/sidebar"
 
 interface Props extends React.PropsWithChildren {}
 
@@ -13,7 +14,9 @@ const RootProvider = ({ children }: Props) => {
       enableSystem
       disableTransitionOnChange
     >
-      {children}
+      <SidebarProvider>
+        {children}
+      </SidebarProvider>
     </ThemeProvider>
   )
 }

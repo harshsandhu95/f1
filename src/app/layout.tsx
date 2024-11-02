@@ -3,6 +3,9 @@ import React from "react";
 import RootProvider from "@/components/provider";
 import { sans } from "@/lib/fonts";
 import "./globals.css";
+import Header from "@/components/header";
+import AppSidebar from "@/components/app-sidebar";
+import { SidebarInset } from "@/components/ui/sidebar";
 
 export const metadata: Metadata = {
   title: `Formula 1 ${new Date().getFullYear()}`,
@@ -18,9 +21,11 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={sans.variable}>
         <RootProvider>
-          <div className="">
+          <AppSidebar />
+          <SidebarInset>
+            <Header />
             {children}
-          </div>
+          </SidebarInset>
         </RootProvider>
       </body>
     </html>
