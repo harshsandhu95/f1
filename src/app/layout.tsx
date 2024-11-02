@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import React from "react";
 import RootProvider from "@/components/provider";
-import { sans } from "@/utils/fonts";
+import { sans } from "@/lib/fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
