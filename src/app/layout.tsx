@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import React from "react";
+import { sans } from "@/utils/fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -14,7 +15,7 @@ export default function RootLayout({
 }: Readonly<Props>) {
   return (
     <html lang="en">
-      <body>
+      <body className={sans.variable}>
         {children}
       </body>
     </html>
