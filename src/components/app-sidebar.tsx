@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "./ui/sidebar";
+import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarTrigger } from "./ui/sidebar";
 import { CalendarCheckIcon, CalendarIcon, LucideProps, UserIcon, UsersIcon } from "lucide-react";
 import Image from "next/image";
 
@@ -59,6 +59,10 @@ const AppSidebar = () => {
           </SidebarGroup>
         ))}
       </SidebarContent>
+
+      <SidebarFooter>
+        <SidebarTrigger />
+      </SidebarFooter>
     </Sidebar>
   )
 };
