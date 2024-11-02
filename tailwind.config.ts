@@ -69,12 +69,16 @@ const config: Config = {
 				sans: 'var(--font-sans)',
 			},
   		borderRadius: {
+				DEFAULT: 'var(--radius)',
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
   		}
   	}
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+		require("tailwindcss-animate"),
+		require('@tailwindcss/container-queries'),
+	],
 };
 export default config;
