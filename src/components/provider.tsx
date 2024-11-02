@@ -7,9 +7,7 @@ import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { SidebarProvider } from "./ui/sidebar";
 
-interface Props extends React.PropsWithChildren {}
-
-const RootProvider = ({ children }: Props) => {
+const RootProvider = ({ children }: React.PropsWithChildren) => {
   const [client] = React.useState(new QueryClient({
     defaultOptions: {
       queries: {
