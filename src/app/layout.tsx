@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import React from "react";
+import RootProvider from "@/components/provider";
 import { sans } from "@/utils/fonts";
 import "./globals.css";
 
@@ -16,7 +17,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={sans.variable}>
-        {children}
+        <RootProvider>
+          <div className="">
+            {children}
+          </div>
+        </RootProvider>
       </body>
     </html>
   );
