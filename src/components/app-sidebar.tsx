@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "./ui/sidebar";
+import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "./ui/sidebar";
 import { CalendarCheckIcon, CalendarIcon, LucideProps, UserIcon, UsersIcon } from "lucide-react";
+import Image from "next/image";
 
 type TSidebarGroup = {
   title: string;
@@ -31,6 +32,12 @@ const AppSidebar = () => {
 
   return (
     <Sidebar variant="inset" collapsible="icon">
+      <SidebarHeader>
+        <Link href="/" className="h-16 flex items-center justify-center">
+          <Image src="/images/logo.png" alt="F1 Stats" width={60} height={48} />
+        </Link>
+      </SidebarHeader>
+
       <SidebarContent>
         {navbar.map(({ title, children }) => (
           <SidebarGroup key={title}>
