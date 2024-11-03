@@ -1,11 +1,14 @@
 "use client";
 
+export const revalidate = 60;
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useQuery } from "@tanstack/react-query";
 import { getCurrentMeeting, getSessions } from "../actions";
 import { Meeting, Session } from "@/lib/types";
 import { formatDate } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const LatestRace = () => {
   const { data: meetingData, isLoading: isLoadingMeeting } = useQuery<Meeting>({
@@ -26,6 +29,30 @@ const LatestRace = () => {
     refetchInterval: 36000,
     enabled: !!meetingData?.meeting_key,
   });
+
+  if (isLoadingMeeting || isLoadingSession) {
+    return (
+      <Card>
+        <CardHeader>
+          <CardTitle>Current Meeting</CardTitle>
+          <div className="flex flex-col">
+            <Skeleton className="w-1/4 h-4" />
+            <Skeleton className="mt-1 w-1/4 h-4" />
+          </div>
+        </CardHeader>
+        <CardContent>
+          <ul className="space-y-2">
+            {[1, 2, 3].map((_, index) => (
+              <Skeleton
+                key={index}
+                className="w-full h-24"
+              />
+            ))}
+          </ul>
+        </CardContent>
+      </Card>
+    );
+  }
 
   return (
     <Card>

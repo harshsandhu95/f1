@@ -19,8 +19,8 @@ export async function getCarData({ driver_number, date }: GetCarData): Promise<C
   return data[data.length - 1];
 };
 
-export async function getRaceControl() {
-  const res = await fetch("https://api.openf1.org/v1/race_control?session_key=latest");
+export async function getRaceControl(session_key?: number) {
+  const res = await fetch(`https://api.openf1.org/v1/race_control?session_key=${session_key ?? "latest"}`);
   const data = await res.json();
 
   return data;
