@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { useQuery } from "@tanstack/react-query";
 import { getCurrentMeeting, getSessions } from "../actions";
 import { Meeting, Session } from "@/lib/types";
-import { formatDate, formatDateToSystemTimezone } from "@/lib/utils";
+import { formatDate } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 
 const LatestRace = () => {
