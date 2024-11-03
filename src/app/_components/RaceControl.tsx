@@ -16,6 +16,7 @@ export default function RaceControlList() {
       return data.slice(-5);
     },
     refetchInterval: 5000,
+    retryOnMount: true
   });
 
   return (
@@ -28,8 +29,8 @@ export default function RaceControlList() {
         {isLoading && <p>Loading...</p>}
         <ul className="space-y-2">
           {data && data.map((rc, index) => (
-            <li key={index} className="p-4 rounded text-sm border space-y-1">
-              <div className="flex flexflex-wrap items-center gap-2">
+            <li key={index} className="p-4 rounded text-sm bg-sidebar border space-y-1">
+              <div className="flex flex-wrap items-center gap-2">
                 <Badge>{rc.category}</Badge>
                 {rc.scope && <Badge>{rc.scope}</Badge>}
               </div>
